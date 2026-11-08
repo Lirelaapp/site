@@ -1,44 +1,458 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lirela · Harcama ve Bütçe</title>
-<meta name="description" content="Lirela ile harcamalarını, kazancını, bütçeni ve borçlarını tek yerden takip et. Reklam yok, izleme yok.">
-<meta name="color-scheme" content="light dark">
-<meta name="referrer" content="no-referrer">
-<link rel="stylesheet" href="/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lirela — Harcama, borç ve bütçe takibi</title>
+  <meta name="description" content="Lirela ile harcamalarını, kazancını, borçlarını ve bütçeni tek bir iPhone uygulamasında tut. Türkçe, TL ile.">
+  <meta name="theme-color" content="#0E4D45">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="img/lirela.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="ana.css">
+  <script>
+    /* Hareket azaltma kapalıysa adımlar ekrana girerken belirsin (DESIGN.md §8 istisnası) */
+    if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('js-reveal');
+    }
+  </script>
 </head>
 <body>
-<header class="site-header"><div class="wrap"><a class="brand" href="/">Lirela</a><nav class="nav"><a href="/" aria-current="page">Ana sayfa</a><a href="/gizlilik/">Gizlilik</a><a href="/kosullar/">Koşullar</a><a href="/destek/">Destek</a></nav></div></header>
-<main class="wrap">
+  <a class="skip" href="#icerik">İçeriğe geç</a>
 
-<section class="hero">
-  <p class="eyebrow">Lirela</p>
-  <h1>Paranı tek yerden takip et</h1>
-  <p>Harcamalarını, kazancını, bütçeni ve borçlarını kendi girdiğin bilgilerle düzenli tutan bir iPhone uygulaması.</p>
-  <span class="badge">Yakında App Store'da</span>
-</section>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./" aria-label="Lirela ana sayfa">
+        <img src="img/lirela.svg" alt="" width="32" height="32">
+        <span>Lirela</span>
+      </a>
+      <nav class="nav" aria-label="Üst menü">
+        <a href="https://lirela.app/gizlilik">Gizlilik</a>
+        <a href="https://lirela.app/kosullar">Koşullar</a>
+        <a href="mailto:destek@lirela.app">Destek</a>
+      </nav>
+    </div>
+  </header>
 
-<h2>Neler yapabilirsin?</h2>
-<div class="grid">
-  <div class="card"><h3>Harcama ve kazanç</h3><p>Kategorilerle kaydet; günü, haftayı ve ayı tek bakışta gör.</p></div>
-  <div class="card"><h3>Bütçe</h3><p>Aylık ya da kategori bütçesi koy; sınıra yaklaşınca uyarı al.</p></div>
-  <div class="card"><h3>Sabit giderler</h3><p>Kira, fatura, abonelik gibi düzenli giderler her dönem kendiliğinden eklenir.</p></div>
-  <div class="card"><h3>Borç ve taksit</h3><p>Kredi, kredi kartı ve kişi borçlarını izle; vadeden önce hatırlatma al.</p></div>
-  <div class="card"><h3>İsteğe bağlı grup</h3><p>Yakınlarınla neyi paylaşacağını sen seç; istemediğin kayıt görünmez.</p></div>
-  <div class="card"><h3>Gizlilik</h3><p>Reklam yok, izleme yok, veri satışı yok. Face ID kilidi ve dışa aktarma var.</p></div>
-</div>
+  <main id="icerik">
+    <section class="hero" aria-labelledby="baslik">
+      <div class="container">
+        <div>
+          <h1 id="baslik">Paranı tek ekranda gör</h1>
+          <p class="tagline">Harcama, kazanç ve borç bir arada</p>
+          <p class="lead">Ay sonunda “bu para nereye gitti?” diyorsan Lirela tam sana göre. Harcamalarını, kazancını, borçlarını ve bütçeni tek bir uygulamada tut.</p>
+          <div class="cta-row">
+            <span class="soon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              App Store'da yakında
+            </span>
+            <span class="platform">iPhone için</span>
+          </div>
+        </div>
+        <img class="phone phone--tabbar hero-shot" src="img/1-ozet.jpg" width="720" height="1534" fetchpriority="high"
+             alt="Lirela Özet ekranı: bu ayın harcama dağılımını gösteren halka grafik ve kazanç, harcama, kalan ve borç satırları (demo verisi).">
+      </div>
+    </section>
 
-<p class="note">Lirela bir banka ya da ödeme uygulaması değildir: banka hesabına bağlanmaz, para çekmez ve ödeme yapmaz. Tutarları sen girersin; hesaplamalar tahmindir.</p>
+    <section class="section story" aria-labelledby="hikaye">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="hikaye">Bir ayın hikâyesi</h2>
+          <p>Bir Ekim ayı boyunca Lirela'yla neler olur? Tarihler ve tutarlar örnektir; ekran görüntüleri demo verisiyle alındı.</p>
+        </div>
 
-<h2>İletişim</h2>
-<div class="card">
-  <p>Soru, öneri ya da hata bildirimi için: <a href="mailto:destek@lirela.app">destek@lirela.app</a></p>
-  <p>Sık sorulan sorular için <a href="/destek/">Destek</a> sayfasına bak.</p>
-</div>
+        <ol class="steps" role="list">
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-01">1 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Maaş yattı, kazanç olarak girdin.</h3>
+              <p class="step-desc">Kazanç sekmesi ayın toplam kazancını, aylık hedefini ve beklenen düzenli gelirlerini gösterir.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Param nereye gitti?</p>
+            </div>
+            <figure class="step-media">
+              <img class="phone phone--tabbar" src="img/6-kazanc.jpg" width="720" height="1534" loading="lazy"
+                   alt="Kazanç ekranı: bu ayın toplam kazancı, aylık hedef çubuğu ve beklenen düzenli gelirler (demo verisi).">
+            </figure>
+          </li>
 
-</main>
-<footer class="site-footer"><div class="wrap"><span>© 2026 Lirela</span><a href="mailto:destek@lirela.app">destek@lirela.app</a><a href="/gizlilik/">Gizlilik</a><a href="/kosullar/">Koşullar</a></div></footer>
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-03">3 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Marketten çıkarken 5 saniyede harcama ekledin.</h3>
+              <p class="step-desc">Sadece tutar zorunlu; kategori ve not isteğe bağlı.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Param nereye gitti?</p>
+            </div>
+            <figure class="step-media">
+              <img class="phone" src="img/2-harcama-ekle.jpg" width="720" height="1557" loading="lazy"
+                   alt="Harcama ekle ekranı: ₺250 tutarı, isteğe bağlı kategoriler ve Kaydet düğmesi (demo verisi).">
+            </figure>
+          </li>
+
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-12">12 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Market bütçenin %80'ine geldin, Lirela haber verdi.</h3>
+              <p class="step-desc">Her kategoriye ayrı bütçe koyarsın; belirlediğin eşiğe gelince ya da bütçe aşılınca bildirim gelir.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Param nereye gitti?</p>
+            </div>
+            <figure class="step-media">
+              <div class="mock phone" role="img"
+                   aria-label="Temsilî çizim: Lirela'dan 'Bütçe uyarısı: Market bütçesinin %80 kadarı harcandı, ₺700 kaldı.' bildirimi, bu ay harcanabilecek ₺4.200 ve kategori bütçeleri listesi; Market ₺2.800 / ₺3.500, %80 dikkat (örnek tutarlar).">
+                <div class="mock-inner" aria-hidden="true">
+                  <div class="mock-notif">
+                    <img src="img/lirela.svg" alt="" width="34" height="34">
+                    <div>
+                      <div class="mock-notif-head"><b>Lirela</b><span>şimdi</span></div>
+                      <div class="mock-notif-title">Bütçe uyarısı</div>
+                      <div class="mock-notif-body">Market bütçesinin %80 kadarı harcandı, ₺700 kaldı.</div>
+                    </div>
+                  </div>
+                  <div class="mock-title">Bütçe<small>Ekim 2026</small></div>
+                  <div class="mock-hero">
+                    <span class="mock-hero-label">Bu ay harcayabileceğin</span>
+                    <span class="mock-hero-big num">₺4.200</span>
+                    <span class="mock-hero-label num">Bütçe ₺13.000 · harcanan ₺8.800</span>
+                    <span class="mock-hero-bar"><i style="width:68%"></i></span>
+                    <span class="mock-hero-row">
+                      <span><span class="mock-hero-label">Ayın bitmesine</span><b class="num">20 gün</b></span>
+                      <span><span class="mock-hero-label">Günde en fazla</span><b class="num">₺210</b></span>
+                    </span>
+                  </div>
+                  <div class="mock-section">Kategori bütçeleri</div>
+                  <div class="mock-card">
+                    <div class="mock-row">
+                      <span class="mock-badge" style="--cat: var(--chart-market)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+                      <span class="mock-name"><b>Market</b><span class="num">₺2.800 / ₺3.500 · ₺700 kaldı</span></span>
+                      <span class="mock-pill mock-pill--warn num">%80 · dikkat</span>
+                    </div>
+                    <div class="mock-bar mock-bar--warn"><i style="width:80%"></i></div>
+                    <div class="mock-sep"></div>
+                    <div class="mock-row">
+                      <span class="mock-badge" style="--cat: var(--chart-ulasim)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></span>
+                      <span class="mock-name"><b>Ulaşım</b><span class="num">₺600 / ₺1.500 · ₺900 kaldı</span></span>
+                      <span class="mock-pill num">%40</span>
+                    </div>
+                    <div class="mock-bar"><i style="width:40%"></i></div>
+                    <div class="mock-sep"></div>
+                    <div class="mock-row">
+                      <span class="mock-badge" style="--cat: var(--chart-eglence)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 13h.01"/><path d="M18 11h.01"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></span>
+                      <span class="mock-name"><b>Eğlence</b><span class="num">₺450 / ₺1.000 · ₺550 kaldı</span></span>
+                      <span class="mock-pill num">%45</span>
+                    </div>
+                    <div class="mock-bar"><i style="width:45%"></i></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="mock-caption">Temsilî çizim, gerçek ekran görüntüsü değil.</figcaption>
+            </figure>
+          </li>
+
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-24">24 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Kartının son ödeme günü 27 Ekim; Lirela üç gün önceden hatırlattı.</h3>
+              <p class="step-desc">Kredi kartı, kredi ve kişi borçları tek ekranda; her borç için kaç gün önce hatırlatılacağını sen seçersin.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Hangi borcum ne zaman?</p>
+            </div>
+            <figure class="step-media">
+              <img class="phone phone--tabbar phone--tabbar-1529" src="img/3-borc.jpg" width="720" height="1529" loading="lazy"
+                   alt="Borçlar ekranı: toplam kalan borç, 'Kredi kartı · 3 gün sonra, son ödeme 27 Ekim' uyarısı ve borç listesi (demo verisi).">
+            </figure>
+          </li>
+
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-26">26 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Ev arkadaşınla ortak harcamaları birlikte gördünüz; gruptan gizlediğin harcama sende kaldı.</h3>
+              <p class="step-desc">Grubu davet koduyla kurarsın; harcama, kazanç, borç ve not paylaşımı başta kapalıdır, hangisini açacağına sen karar verirsin.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Kim ne kadar harcadı?</p>
+            </div>
+            <figure class="step-media">
+              <img class="phone phone--tabbar" src="img/4-grup.jpg" width="720" height="1534" loading="lazy"
+                   alt="Grup özeti ekranı: 'Ev' grubunun toplam harcaması, kişilere göre dağılım ve bu ay gelen ile harcanan para (demo verisi).">
+            </figure>
+          </li>
+
+          <li class="step">
+            <div class="step-text">
+              <p class="step-date"><time datetime="2026-10-31">31 Ekim</time> <span class="sample">örnek</span></p>
+              <h3 class="step-title">Ay özeti: para nereye gitti, tek ekranda.</h3>
+              <p class="step-desc">Özet, harcamanı kategorilere göre halka grafikte; kazancını, harcamanı ve kalanı tek listede gösterir.</p>
+              <p class="step-q"><span class="visually-hidden">Cevap verdiği soru: </span>Param nereye gitti?</p>
+            </div>
+            <figure class="step-media">
+              <img class="phone phone--tabbar" src="img/1-ozet.jpg" width="720" height="1534" loading="lazy"
+                   alt="Özet ekranı: ayın harcama dağılımını gösteren halka grafik ve kazanç, harcama, kalan ve borç satırları (demo verisi).">
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="dene" style="padding-top:0">
+      <div class="container">
+        <div class="try">
+          <div class="try-head">
+            <h2 id="dene">Kendi ayını dene</h2>
+            <p>Aylık gelirini ve dört gider kalemini yaz; kalan tutar ve dağılım hemen hesaplanır.</p>
+          </div>
+
+          <div class="try-grid">
+            <form class="try-form" id="deneForm" novalidate autocomplete="off">
+              <div class="field">
+                <label for="f-gelir">Aylık gelir</label>
+                <div class="money"><span aria-hidden="true">₺</span><input id="f-gelir" name="gelir" type="text" inputmode="decimal" placeholder="0" aria-describedby="e-gelir"></div>
+                <p class="field-error" id="e-gelir" hidden></p>
+              </div>
+              <fieldset>
+                <legend>Giderler</legend>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="f-kira">Kira</label>
+                    <div class="money"><span aria-hidden="true">₺</span><input id="f-kira" name="kira" type="text" inputmode="decimal" placeholder="0" aria-describedby="e-kira"></div>
+                    <p class="field-error" id="e-kira" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="f-market">Market</label>
+                    <div class="money"><span aria-hidden="true">₺</span><input id="f-market" name="market" type="text" inputmode="decimal" placeholder="0" aria-describedby="e-market"></div>
+                    <p class="field-error" id="e-market" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="f-ulasim">Ulaşım</label>
+                    <div class="money"><span aria-hidden="true">₺</span><input id="f-ulasim" name="ulasim" type="text" inputmode="decimal" placeholder="0" aria-describedby="e-ulasim"></div>
+                    <p class="field-error" id="e-ulasim" hidden></p>
+                  </div>
+                  <div class="field">
+                    <label for="f-eglence">Eğlence</label>
+                    <div class="money"><span aria-hidden="true">₺</span><input id="f-eglence" name="eglence" type="text" inputmode="decimal" placeholder="0" aria-describedby="e-eglence"></div>
+                    <p class="field-error" id="e-eglence" hidden></p>
+                  </div>
+                </div>
+              </fieldset>
+              <button class="btn-secondary" type="reset">Temizle</button>
+            </form>
+
+            <div class="try-result">
+              <div class="donut-wrap">
+                <svg class="donut" id="donut" viewBox="0 0 42 42" role="img" aria-labelledby="donutText">
+                  <circle class="donut-track" cx="21" cy="21" r="15.915" fill="none" stroke-width="6"/>
+                  <g id="donutSegs" transform="rotate(-90 21 21)"></g>
+                </svg>
+                <div class="donut-center">
+                  <span class="donut-label" id="centerLabel">Kalan</span>
+                  <span class="donut-value num" id="centerValue">₺0</span>
+                </div>
+              </div>
+              <ul class="legend" id="legend" role="list">
+                <li><span class="sw" style="--sw: var(--chart-kira)"></span><span>Kira</span><b class="num" data-k="kira">₺0</b><span class="pct num" data-p="kira">%0</span></li>
+                <li><span class="sw" style="--sw: var(--chart-market)"></span><span>Market</span><b class="num" data-k="market">₺0</b><span class="pct num" data-p="market">%0</span></li>
+                <li><span class="sw" style="--sw: var(--chart-ulasim)"></span><span>Ulaşım</span><b class="num" data-k="ulasim">₺0</b><span class="pct num" data-p="ulasim">%0</span></li>
+                <li><span class="sw" style="--sw: var(--chart-eglence)"></span><span>Eğlence</span><b class="num" data-k="eglence">₺0</b><span class="pct num" data-p="eglence">%0</span></li>
+                <li class="legend-rest"><span class="sw sw--rest"></span><span id="restName">Kalan</span><b class="num" id="restValue">₺0</b><span class="pct num" id="restPct">%0</span></li>
+              </ul>
+              <p class="try-status" id="donutText" aria-live="polite">Tutarları yazınca sonuç burada görünür.</p>
+              <noscript><p class="try-status">Bu hesaplayıcı için tarayıcında JavaScript açık olmalı.</p></noscript>
+            </div>
+          </div>
+
+          <p class="try-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Girdiğin tutarlar sadece bu sayfada, kendi tarayıcında hesaplanır. Hiçbir yere gönderilmez ve kaydedilmez; sayfayı yenileyince silinir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Önemli bilgi" style="padding-top:0">
+      <div class="container">
+        <div class="notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p><strong>Önemli:</strong> Lirela bir banka ya da ödeme uygulaması değildir. Banka hesabına veya kartına bağlanmaz, kart bilgisi istemez. Kimseye borç veya kredi vermez; kullanıcılar arasında para toplamaz, aktarmaz ya da tahsilat yapmaz. Uygulamadaki tüm tutarları sen girersin; hesaplamalar senin girdiğin bilgilere dayanan tahminlerdir, kesin tutar için bankana bak. Lirela 18 yaş ve üstü içindir.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="yakinda" style="padding-top:0">
+      <div class="container">
+        <div class="cta-band">
+          <h2 id="yakinda">Lirela yakında App Store'da</h2>
+          <p>iPhone için</p>
+          <span class="soon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Yakında
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav aria-label="Alt menü">
+        <ul role="list">
+          <li><a href="https://lirela.app/gizlilik">Gizlilik Politikası ve KVKK</a></li>
+          <li><a href="https://lirela.app/kosullar">Kullanım Koşulları</a></li>
+          <li><a href="mailto:destek@lirela.app">destek@lirela.app</a></li>
+        </ul>
+      </nav>
+      <p class="meta">© 2026 Lirela</p>
+    </div>
+  </footer>
+  <script>
+  /* Lirela deneme sayfası — dış kütüphane yok, hiçbir veri gönderilmez ya da kaydedilmez. */
+  (function () {
+    'use strict';
+
+    /* 1) Bir ayın hikâyesi: adımlar ekrana girerken hafifçe belirir (DESIGN.md §8 istisnası).
+          Hareket azaltma açıksa ya da tarayıcı desteklemiyorsa hiçbir şey yapılmaz, içerik hep görünür. */
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.step').forEach(function (s) { io.observe(s); });
+    } else {
+      document.documentElement.classList.remove('js-reveal');
+    }
+
+    /* 2) Kendi ayını dene */
+    var form = document.getElementById('deneForm');
+    if (!form) return;
+    var KEYS = ['kira', 'market', 'ulasim', 'eglence'];
+    var MAX = 1e9;
+    var nf0 = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 0 });
+    var nf2 = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    // Kuruş yoksa yazılmaz (₺31.420), varsa iki hane (₺6.500,50) — DESIGN.md §11
+    var num = function (v) { v = Math.round(Math.abs(v) * 100) / 100; return (v % 1 === 0 ? nf0 : nf2).format(v); };
+    var tl = function (v) { return (v < 0 ? '−₺' : '₺') + num(v); };
+    var pct = function (v) { return '%' + Math.round(v * 100); };
+
+    // Türkçe biçimle yazılan tutarı sayıya çevirir: "15.000", "15.000,50", "1500", "₺ 2.300"
+    function parse(raw) {
+      var s = String(raw || '').replace(/₺|\s/g, '');
+      if (s === '') return { v: 0 };
+      if (/[-−]/.test(s)) return { v: 0, err: 'Eksi tutar olmaz; 0 ya da daha büyük bir tutar yaz.' };
+      if (s.indexOf(',') === -1 && /^\d+\.\d{1,2}$/.test(s)) s = s.replace('.', ',');  // "12.5" → 12,5
+      if (!/^\d{1,3}(\.\d{3})*(,\d{1,2})?$|^\d+(,\d{1,2})?$/.test(s)) return { v: 0, err: 'Sadece rakam yaz (ör. 15.000 ya da 15.000,50).' };
+      var v = Number(s.replace(/\./g, '').replace(',', '.'));
+      if (!isFinite(v)) return { v: 0, err: 'Geçerli bir tutar yaz.' };
+      if (v > MAX) return { v: 0, err: 'Bu tutar çok büyük.' };
+      return { v: v };
+    }
+
+    function field(name) { return form.elements[name]; }
+    function showError(name, msg) {
+      var input = field(name), el = document.getElementById('e-' + name);
+      if (msg) { el.textContent = msg; el.hidden = false; input.setAttribute('aria-invalid', 'true'); }
+      else { el.textContent = ''; el.hidden = true; input.removeAttribute('aria-invalid'); }
+    }
+
+    var segs = document.getElementById('donutSegs');
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    var COLORS = { kira: 'var(--chart-kira)', market: 'var(--chart-market)', ulasim: 'var(--chart-ulasim)', eglence: 'var(--chart-eglence)', rest: 'var(--chart-rest)' };
+    var NAMES = { kira: 'kira', market: 'market', ulasim: 'ulaşım', eglence: 'eğlence' };
+
+    function drawDonut(parts) {
+      while (segs.firstChild) segs.removeChild(segs.firstChild);
+      var shown = parts.filter(function (p) { return p.share > 0; });
+      var gap = shown.length > 1 ? 0.8 : 0;
+      var offset = 0;
+      shown.forEach(function (p) {
+        var len = p.share * 100;
+        var c = document.createElementNS(SVGNS, 'circle');
+        c.setAttribute('cx', '21'); c.setAttribute('cy', '21'); c.setAttribute('r', '15.915');
+        c.setAttribute('fill', 'none'); c.setAttribute('stroke-width', '6');
+        c.setAttribute('stroke-dasharray', Math.max(len - gap, 0.01) + ' ' + (100 - Math.max(len - gap, 0.01)));
+        c.setAttribute('stroke-dashoffset', String(-offset));
+        c.style.stroke = COLORS[p.key];
+        segs.appendChild(c);
+        offset += len;
+      });
+    }
+
+    var statusTimer;
+    function update() {
+      // Tüm hesap tam sayı kuruşla yapılır; 0,1 + 0,2 gibi ondalık yuvarlama farkı "Açık −₺0" göstermesin
+      var g = parse(field('gelir').value);
+      showError('gelir', g.err);
+      var income = Math.round(g.v * 100), vals = {}, spent = 0, anyErr = !!g.err;
+      KEYS.forEach(function (k) {
+        var r = parse(field(k).value);
+        showError(k, r.err);
+        if (r.err) anyErr = true;
+        vals[k] = Math.round(r.v * 100); spent += vals[k];
+      });
+      var rest = income - spent;
+      var base = Math.max(income, spent);
+      var T = function (kurus) { return tl(kurus / 100); };
+      var P = function (part, whole) { var p = part / whole; return p > 9.99 ? '>%999' : pct(p); };
+
+      KEYS.forEach(function (k) {
+        document.querySelector('[data-k="' + k + '"]').textContent = T(vals[k]);
+        document.querySelector('[data-p="' + k + '"]').textContent = income > 0 ? P(vals[k], income) : '—';
+      });
+
+      var restName = document.getElementById('restName');
+      var restValue = document.getElementById('restValue');
+      var restPct = document.getElementById('restPct');
+      var centerLabel = document.getElementById('centerLabel');
+      var centerValue = document.getElementById('centerValue');
+      var status = document.getElementById('donutText');
+      var wrap = document.querySelector('.try-result');
+
+      var parts = KEYS.map(function (k) { return { key: k, share: base > 0 ? vals[k] / base : 0 }; });
+      if (rest > 0) parts.push({ key: 'rest', share: rest / base });
+      drawDonut(parts);
+
+      var over = rest < 0 && income > 0;
+      wrap.classList.toggle('is-over', over);
+      restName.textContent = over ? 'Açık' : 'Kalan';
+      centerLabel.textContent = over ? 'Açık' : 'Kalan';
+      restValue.textContent = income > 0 || spent === 0 ? T(rest) : '—';
+      restPct.textContent = income > 0 ? P(Math.abs(rest), income) : '—';
+      centerValue.textContent = T(rest);
+      if (income === 0 && spent > 0) {          // gelir yokken "açık" demek yanıltır; toplam gideri göster
+        centerLabel.textContent = 'Toplam gider';
+        centerValue.textContent = T(spent);
+      }
+      var len = centerValue.textContent.length;
+      centerValue.classList.toggle('is-long', len > 9 && len <= 13);
+      centerValue.classList.toggle('is-xlong', len > 13);
+
+      var msg;
+      if (g.err) {
+        msg = 'Gelir tutarını düzelt; sonuç ona göre hesaplanacak.';
+      } else if (income === 0 && spent === 0) {
+        msg = anyErr ? 'Hatalı alanları düzelt; sonuç burada görünür.' : 'Tutarları yazınca sonuç burada görünür.';
+      } else if (income === 0) {
+        msg = 'Gelir girmedin; giderlerin toplamı ' + T(spent) + '.';
+      } else if (rest < 0) {
+        msg = 'Giderlerin (' + T(spent) + ') gelirini ' + T(-rest) + ' aşıyor.';
+      } else {
+        var big = KEYS.slice().sort(function (a, b) { return vals[b] - vals[a]; })[0];
+        msg = 'Gelirin ' + T(income) + ', giderlerin ' + T(spent) + '; elinde ' + T(rest) + ' kalıyor.' +
+          (vals[big] > 0 ? ' En büyük kalem ' + NAMES[big] + '.' : '');
+      }
+      if (anyErr && !g.err && (income > 0 || spent > 0)) msg = 'Hatalı alanı düzelt. ' + msg;
+      // Durum satırı ekran okuyucuya okunur (aria-live); her tuşta konuşmasın diye kısa gecikmeyle yazılır
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(function () { status.textContent = msg; }, 400);
+    }
+
+    form.addEventListener('input', update);
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    form.addEventListener('reset', function () { setTimeout(update, 0); });
+    // Alandan çıkınca tutarı Türkçe biçimde göster (15000 → 15.000)
+    form.addEventListener('focusout', function (e) {
+      var t = e.target;
+      if (t.tagName !== 'INPUT') return;
+      var r = parse(t.value);
+      if (!r.err && t.value.trim() !== '') t.value = num(r.v);
+    });
+    update();
+  })();
+  </script>
 </body>
 </html>
